@@ -53,8 +53,6 @@ public class EscanearActivity extends AppCompatActivity {
     
     private ExecutorService cameraExecutor;
     private CameraControl cameraControl;
-    private ExecutorService cameraExecutor;
-    private CameraControl cameraControl;
     private String lastDetectedCode = "";
     private String lastMaterial = "";
     private MaterialButton btnContinuarPesaje;
