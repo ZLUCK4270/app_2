@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ==========================================================
+     ECOLIM MÓVIL - ESTILOS Y TEMAS (styles.xml)
+     Material 3 con personalización verde corporativo
+     ========================================================== -->
+<resources>
+    <style name="Theme.EcolimMovil" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Paleta de colores primaria -->
+        <item name="colorPrimary">@color/ecolim_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/ecolim_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/ecolim_on_primary_container</item>
+        
+        <!-- Superficie y Ventana -->
+        <item name="android:windowBackground">@color/ecolim_surface</item>
+        <item name="colorSurface">@color/ecolim_card_bg</item>
+        <item name="colorOnSurface">@color/ecolim_text_main</item>
+        
+        <!-- Barra de estado -->
+        <item name="android:statusBarColor">@color/ecolim_surface</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.EcolimMovil.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Estilo para BottomSheetDialog redondeado -->
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+</resources>

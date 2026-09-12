@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_screen">16dp</dimen>
+    <dimen name="padding_card">16dp</dimen>
+    <dimen name="corner_radius_card">16dp</dimen>
+    <dimen name="corner_radius_button">12dp</dimen>
+    <dimen name="text_display_weight">34sp</dimen>
+    <dimen name="text_heading">20sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="height_bottom_nav">64dp</dimen>
+</resources>

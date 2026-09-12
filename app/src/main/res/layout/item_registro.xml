@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ==========================================================
+     ECOLIM MÓVIL - ELEMENTO DE LISTA (item_registro.xml)
+     Tarjeta para el RecyclerView de Registros de Residuos
+     ========================================================== -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_registro"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="1dp"
+    app:cardBackgroundColor="@color/ecolim_card_bg"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/ecolim_divider">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Borde lateral o Icono de Categoría -->
+        <FrameLayout
+            android:id="@+id/fl_icono_container"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_circle_container">
+
+            <ImageView
+                android:id="@+id/iv_item_categoria"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_recycle"
+                app:tint="@color/ecolim_primary" />
+        </FrameLayout>
+
+        <!-- Información de Lote y Contenedor -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_item_codigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ECO-2026-0941"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/ecolim_text_main" />
+
+            <TextView
+                android:id="@+id/tv_item_material_subtipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plástico · PET Reciclable"
+                android:textSize="13sp"
+                android:textColor="@color/ecolim_text_muted" />
+
+            <TextView
+                android:id="@+id/tv_item_contenedor_hora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contenedor C-04 · 10:45 AM"
+                android:textSize="11sp"
+                android:textColor="@color/ecolim_text_muted" />
+        </LinearLayout>
+
+        <!-- Peso y Estado de Sincronización -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tv_item_peso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="14.80 kg"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/ecolim_primary_dark" />
+
+            <TextView
+                android:id="@+id/tv_item_sync_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:text="Sincronizado"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="@color/sync_ok_text"
+                android:background="@drawable/bg_badge_sync_ok" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

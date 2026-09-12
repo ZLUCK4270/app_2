@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ==========================================================
+     ECOLIM MÓVIL - FICHA TÉCNICA OFICIAL (sheet_detalle.xml)
+     BottomSheetDialog con Peso Calibrado, Báscula, GPS, RFID y Acciones
+     ========================================================== -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_bottom_sheet_white"
+    android:padding="20dp">
+
+    <!-- Píldora de Arrastre -->
+    <View
+        android:layout_width="48dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/ecolim_divider"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ficha_tecnica_titulo"
+        android:textSize="11sp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/ecolim_text_muted" />
+
+    <TextView
+        android:id="@+id/tv_sheet_codigo_lote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lote ECO-2026-0941"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/ecolim_primary_dark" />
+
+    <!-- Tarjeta Principal: Peso Calibrado -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/ecolim_surface_variant"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PESO NETO CALIBRADO"
+                    android:textSize="11sp"
+                    android:textColor="@color/ecolim_text_muted" />
+
+                <TextView
+                    android:id="@+id/tv_sheet_peso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="14.80 kg"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/ecolim_primary_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bascula_ok"
+                    android:textSize="12sp"
+                    android:textColor="@color/ecolim_primary" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_sheet_material_icono"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:src="@drawable/ic_plastico"
+                app:tint="@color/cat_plastico" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Metadatos de Campo: 4 Celdas -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:layout_marginTop="12dp">
+
+        <!-- Celda 1: Fecha y Hora -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FECHA Y HORA"
+                android:textSize="10sp"
+                android:textColor="@color/ecolim_text_muted" />
+
+            <TextView
+                android:id="@+id/tv_sheet_fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hoy, 10:45 AM"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/ecolim_text_main" />
+        </LinearLayout>
+
+        <!-- Celda 2: Operador -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TÉCNICO ASIGNADO"
+                android:textSize="10sp"
+                android:textColor="@color/ecolim_text_muted" />
+
+            <TextView
+                android:id="@+id/tv_sheet_operador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sarah M. (OP-9941)"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/ecolim_text_main" />
+        </LinearLayout>
+
+        <!-- Celda 3: Coordenadas GPS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COORDENADAS GPS"
+                android:textSize="10sp"
+                android:textColor="@color/ecolim_text_muted" />
+
+            <TextView
+                android:id="@+id/tv_sheet_gps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-12.0463, -77.0427"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/ecolim_text_main" />
+        </LinearLayout>
+
+        <!-- Celda 4: Tag RFID -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TAG RFID CONTENEDOR"
+                android:textSize="10sp"
+                android:textColor="@color/ecolim_text_muted" />
+
+            <TextView
+                android:id="@+id/tv_sheet_rfid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RFID-88219-X (C-04)"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/ecolim_text_main" />
+        </LinearLayout>
+    </GridLayout>
+
+    <!-- Botones de Acción -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_editar_peso"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_editar_peso"
+        android:textAllCaps="false"
+        app:cornerRadius="12dp"
+        android:backgroundTint="@color/ecolim_primary" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_imprimir_qr"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/btn_imprimir_qr"
+        android:textAllCaps="false"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:cornerRadius="12dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_eliminar_registro"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/btn_eliminar"
+        android:textColor="@color/cat_peligroso"
+        android:textAllCaps="false"
+        style="@style/Widget.Material3.Button.TextButton" />
+
+</LinearLayout>

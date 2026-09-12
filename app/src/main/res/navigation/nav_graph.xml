@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_inicio">
+
+    <fragment
+        android:id="@+id/nav_inicio"
+        android:name="com.ecolim.app.ui.fragments.InicioFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_inicio" />
+
+    <fragment
+        android:id="@+id/nav_registros"
+        android:name="com.ecolim.app.ui.fragments.RegistrosFragment"
+        android:label="Registros"
+        tools:layout="@layout/fragment_registros" />
+
+    <fragment
+        android:id="@+id/nav_reportes"
+        android:name="com.ecolim.app.ui.fragments.ReportesFragment"
+        android:label="Reportes"
+        tools:layout="@layout/fragment_reportes" />
+
+    <fragment
+        android:id="@+id/nav_sincronizar"
+        android:name="com.ecolim.app.ui.fragments.SincronizarFragment"
+        android:label="Sincronizar"
+        tools:layout="@layout/fragment_sincronizar" />
+
+</navigation>

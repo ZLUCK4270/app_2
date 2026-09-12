@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ==========================================================
+     ECOLIM MÓVIL - FRAGMENTO INICIO (fragment_inicio.xml)
+     Tarjeta 142.5 kg, Acciones Rápidas, Distribución de Materiales
+     ========================================================== -->
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ecolim_surface">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Banner Principal: Recolección del Día -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="@color/ecolim_primary_dark"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hoy_label"
+                    android:textColor="#A7F3D0"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:id="@+id/tv_inicio_total_kg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/hoy_recolectado"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/incremento_ayer"
+                        android:textColor="@color/ecolim_primary_dark"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_pill_mint" />
+                </LinearLayout>
+
+                <!-- Submétricas -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/lotes_validos"
+                        android:textColor="#D1D5DB"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/eficiencia_ruta"
+                        android:textColor="@color/ecolim_accent_mint"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botones de Acción Rápida -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <!-- Botón 1: Escanear QR -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_accion_escanear"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/ecolim_card_bg"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/ecolim_divider">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_camera_scan"
+                        app:tint="@color/ecolim_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Escanear QR"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/ecolim_text_main" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Botón 2: Nuevo Pesaje Báscula -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_accion_nuevo_pesaje"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/ecolim_card_bg"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/ecolim_divider">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_scale"
+                        app:tint="@color/ecolim_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Báscula #B-04"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/ecolim_text_main" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Sección Distribución por Material -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/distribucion_materiales"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/ecolim_primary_dark" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/ecolim_card_bg"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/ecolim_divider">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Barra acumulativa de porcentaje -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_rounded_bar">
+
+                    <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="39" android:background="@color/cat_carton" />
+                    <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="30" android:background="@color/cat_plastico" />
+                    <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="20" android:background="@color/cat_vidrio" />
+                    <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="11" android:background="@color/cat_organico" />
+                </LinearLayout>
+
+                <!-- Leyenda de Materiales -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="14dp">
+
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="● Cartón (39%)" android:textSize="11sp" android:textColor="@color/cat_carton" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="● Plástico (30%)" android:textSize="11sp" android:textColor="@color/cat_plastico" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="● Vidrio (20%)" android:textSize="11sp" android:textColor="@color/cat_vidrio" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="● Orgánico (11%)" android:textSize="11sp" android:textColor="@color/cat_organico" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

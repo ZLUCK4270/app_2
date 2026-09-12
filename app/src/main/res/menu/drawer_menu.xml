@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ==========================================================
+     ECOLIM MÓVIL - MENÚ LATERAL DRAWER (drawer_menu.xml)
+     ========================================================== -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_panel"
+            android:icon="@drawable/ic_home"
+            android:title="Panel Principal"
+            android:checked="true" />
+
+        <item
+            android:id="@+id/drawer_registros"
+            android:icon="@drawable/ic_list"
+            android:title="Historial de Registros" />
+
+        <item
+            android:id="@+id/drawer_rutas"
+            android:icon="@drawable/ic_map_route"
+            android:title="Ruta de Recolección (Norte)" />
+
+        <item
+            android:id="@+id/drawer_sincronizar"
+            android:icon="@drawable/ic_cloud_sync"
+            android:title="Sincronización de Campo" />
+
+        <item
+            android:id="@+id/drawer_perfil"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="Mi Perfil" />
+    </group>
+
+    <item android:title="Configuración de Sistema">
+        <menu>
+            <item
+                android:id="@+id/drawer_sqlite_estado"
+                android:icon="@drawable/ic_database"
+                android:title="SQLite Local v2.6" />
+            <item
+                android:id="@+id/drawer_calibrar_bascula"
+                android:icon="@drawable/ic_scale"
+                android:title="Calibrar Báscula Digital #B-04" />
+            <item
+                android:id="@+id/drawer_cerrar_sesion"
+                android:icon="@drawable/ic_logout"
+                android:title="Cerrar Turno Matutino" />
+        </menu>
+    </item>
+</menu>

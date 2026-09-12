@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ==========================================================
+     ECOLIM MÓVIL - LISTADO DE REGISTROS (fragment_registros.xml)
+     Buscador, Chips de Filtro y RecyclerView de Residuos
+     ========================================================== -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/ecolim_surface"
+    android:padding="16dp">
+
+    <!-- Buscador de Lote o Contenedor -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_buscar_registro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxCornerRadiusTopStart="14dp"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusBottomStart="14dp"
+        app:boxCornerRadiusBottomEnd="14dp"
+        app:boxStrokeColor="@color/ecolim_primary"
+        app:startIconDrawable="@drawable/ic_search"
+        app:hintEnabled="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_buscar_registro"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Buscar por lote, material o C-xx..."
+            android:textSize="14sp"
+            android:background="@color/ecolim_card_bg" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Chips de Filtro Horizontal -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_filtro_lista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_filtro_todos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Todos (6)"
+                android:checked="true"
+                style="@style/Widget.Material3.Chip.Filter" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_filtro_pendientes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pendientes sync (2)"
+                style="@style/Widget.Material3.Chip.Filter" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_filtro_plastico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plástico"
+                style="@style/Widget.Material3.Chip.Filter" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_filtro_carton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cartón"
+                style="@style/Widget.Material3.Chip.Filter" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <!-- Contador de Registros -->
+    <TextView
+        android:id="@+id/tv_contador_lotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:text="Lotes Registrados en SQLite Local (Turno Actual)"
+        android:textSize="12sp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/ecolim_text_muted" />
+
+    <!-- RecyclerView de Registros -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_registros_residuos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp" />
+
+</LinearLayout>

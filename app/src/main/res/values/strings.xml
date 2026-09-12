@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ==========================================================
+     ECOLIM MÓVIL - CADENAS DE TEXTO (strings.xml)
+     ========================================================== -->
+<resources>
+    <string name="app_name">Ecolim</string>
+    <string name="subtitulo_app">Gestión Ambiental de Residuos</string>
+    <string name="tecnico_nombre">Sarah M.</string>
+    <string name="tecnico_rol">Técnico Ambiental</string>
+    <string name="tecnico_turno">Turno Matutino</string>
+    
+    <!-- Navegación -->
+    <string name="nav_inicio">Inicio</string>
+    <string name="nav_registros">Registros</string>
+    <string name="nav_escanear">Escanear</string>
+    <string name="nav_sincronizar">Sincronizar</string>
+    
+    <!-- Pantalla Inicio -->
+    <string name="hoy_recolectado">142.5 kg</string>
+    <string name="hoy_label">Hoy recolectado</string>
+    <string name="incremento_ayer">+18% vs ayer</string>
+    <string name="lotes_validos">24 Lotes válidos</string>
+    <string name="eficiencia_ruta">94% Eficiencia de ruta</string>
+    <string name="accion_escanear_qr">Escanear Contenedor</string>
+    <string name="accion_nuevo_pesaje">Nuevo Pesaje</string>
+    <string name="accion_reporte">Reporte del Día</string>
+    <string name="distribucion_materiales">Distribución por Material</string>
+    
+    <!-- Ficha Técnica -->
+    <string name="ficha_tecnica_titulo">FICHA TÉCNICA OFICIAL</string>
+    <string name="peso_calibrado_def">14.80 kg</string>
+    <string name="bascula_ok">✓ Báscula Digital #B-04 Ok</string>
+    <string name="btn_editar_peso">Editar Peso</string>
+    <string name="btn_imprimir_qr">Imprimir Comprobante / QR</string>
+    <string name="btn_eliminar">Eliminar Registro</string>
+    
+    <!-- Sincronización -->
+    <string name="nodo_activo">ACT-709 · En Línea</string>
+    <string name="btn_sincronizar_ahora">Sincronizar Todo Ahora</string>
+    <string name="modo_offline">Modo Fuera de Línea</string>
+    <string name="almacenamiento_sqlite">Almacenamiento Local SQLite</string>
+</resources>

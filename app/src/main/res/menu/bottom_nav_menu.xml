@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ==========================================================
+     ECOLIM MÓVIL - MENÚ DE NAVEGACIÓN INFERIOR (bottom_nav_menu.xml)
+     ========================================================== -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_inicio"
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_inicio" />
+
+    <item
+        android:id="@+id/nav_registros"
+        android:icon="@drawable/ic_list"
+        android:title="@string/nav_registros" />
+
+    <item
+        android:id="@+id/nav_escanear"
+        android:icon="@drawable/ic_camera_scan"
+        android:title="@string/nav_escanear" />
+
+    <item
+        android:id="@+id/nav_sincronizar"
+        android:icon="@drawable/ic_cloud_sync"
+        android:title="@string/nav_sincronizar" />
+</menu>

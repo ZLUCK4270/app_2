@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ==========================================================
+     ECOLIM MÓVIL - PALETA DE COLORES OFICIAL (colors.xml)
+     ========================================================== -->
+<resources>
+    <!-- Marca Ecolim Verde Primario -->
+    <color name="ecolim_primary">#006D38</color>
+    <color name="ecolim_primary_dark">#002111</color>
+    <color name="ecolim_primary_container">#D7F8E1</color>
+    <color name="ecolim_on_primary_container">#00513A</color>
+    <color name="ecolim_accent_mint">#74F9A0</color>
+    <color name="ecolim_secondary">#4A6572</color>
+
+    <!-- Categorías de Residuos Sólidos -->
+    <color name="cat_plastico">#E57A00</color>
+    <color name="cat_carton">#8A5100</color>
+    <color name="cat_vidrio">#006D38</color>
+    <color name="cat_metal">#4A6572</color>
+    <color name="cat_organico">#7CB342</color>
+    <color name="cat_peligroso">#D32F2F</color>
+
+    <!-- Superficies y Fondos Limpios Neutros -->
+    <color name="ecolim_surface">#F8FAF6</color>
+    <color name="ecolim_surface_variant">#EDEEEB</color>
+    <color name="ecolim_card_bg">#FFFFFF</color>
+    <color name="ecolim_text_main">#191C1A</color>
+    <color name="ecolim_text_muted">#717972</color>
+    <color name="ecolim_divider">#E1E3DF</color>
+
+    <!-- Estados de Sincronización -->
+    <color name="sync_ok_bg">#D7F8E1</color>
+    <color name="sync_ok_text">#00513A</color>
+    <color name="sync_pending_bg">#FFF0E6</color>
+    <color name="sync_pending_text">#8A5100</color>
+    
+    <!-- Elementos Básicos -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

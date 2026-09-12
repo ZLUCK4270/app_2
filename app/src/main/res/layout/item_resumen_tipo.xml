@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingVertical="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/view_color_dot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/bg_circle_primary"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/tv_resumen_material"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Plástico"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/ecolim_text_main" />
+
+        <TextView
+            android:id="@+id/tv_resumen_kg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23.9 kg"
+            android:textSize="13sp"
+            android:textColor="@color/ecolim_text_main"
+            android:layout_marginEnd="12dp" />
+
+        <TextView
+            android:id="@+id/tv_resumen_porcentaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16.8%"
+            android:textSize="12sp"
+            android:textColor="@color/ecolim_text_muted" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_resumen_barra"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_marginTop="6dp"
+        android:progress="17"
+        android:progressTint="@color/ecolim_primary" />
+
+</LinearLayout>

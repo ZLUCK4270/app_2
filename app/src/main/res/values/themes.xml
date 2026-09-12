@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Ecolim" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/ecolim_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/ecolim_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/ecolim_on_primary_container</item>
+        <item name="android:colorBackground">@color/ecolim_surface</item>
+        <item name="colorSurface">@color/ecolim_card_bg</item>
+        <item name="colorOnSurface">@color/ecolim_text_main</item>
+        <item name="android:statusBarColor">@color/ecolim_surface</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.Ecolim.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.EcolimApp" parent="Theme.Ecolim" />
+    <style name="Theme.EcolimApp.NoActionBar" parent="Theme.Ecolim.NoActionBar" />
+</resources>
