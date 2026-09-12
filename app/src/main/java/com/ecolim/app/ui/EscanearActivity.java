@@ -27,15 +27,12 @@ import com.ecolim.app.R;
 import com.ecolim.app.util.ClasificadorTFLite;
 import com.google.android.material.button.MaterialButton;
 import com.google.common.util.concurrent.ListenableFuture;
-import com.google.mlkit.vision.barcode.BarcodeScanner;
-import com.google.mlkit.vision.barcode.BarcodeScannerOptions;
-import com.google.mlkit.vision.barcode.BarcodeScanning;
-import com.google.mlkit.vision.barcode.common.Barcode;
-import com.google.mlkit.vision.common.InputImage;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.Random;
 
 /**
  * Actividad para escaneo visual de código de barras/RFID y clasificación TFLite.
@@ -56,9 +53,11 @@ public class EscanearActivity extends AppCompatActivity {
     
     private ExecutorService cameraExecutor;
     private CameraControl cameraControl;
-    private BarcodeScanner barcodeScanner;
+    private ExecutorService cameraExecutor;
+    private CameraControl cameraControl;
     private String lastDetectedCode = "";
     private String lastMaterial = "";
+    private MaterialButton btnContinuarPesaje;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,18 +67,17 @@ public class EscanearActivity extends AppCompatActivity {
         clasificador = new ClasificadorTFLite(this);
         cameraExecutor = Executors.newSingleThreadExecutor();
         
-        BarcodeScannerOptions options = new BarcodeScannerOptions.Builder()
-                .setBarcodeFormats(Barcode.FORMAT_ALL_FORMATS)
-                .build();
-        barcodeScanner = BarcodeScanning.getClient(options);
-
         tvCodigoDetectado = findViewById(R.id.tv_scanner_codigo);
         tvClasificacionAi = findViewById(R.id.tv_scanner_ia_label);
         btnTorch = findViewById(R.id.btn_scanner_torch);
         viewFinder = findViewById(R.id.camera_preview_fullscreen);
+        btnContinuarPesaje = findViewById(R.id.btn_scanner_pesar);
+        MaterialButton btnCapturar = findViewById(R.id.btn_scanner_capturar);
 
-        tvCodigoDetectado.setText("Apuntando...");
-        tvClasificacionAi.setText("IA: Esperando captura...");
+        tvCodigoDetectado.setText("Esperando Captura...");
+        tvClasificacionAi.setText("Enfoque el contenedor y presione Capturar");
+
+        btnCapturar.setOnClickListener(v -> capturarYClasificar());
 
         findViewById(R.id.btn_scanner_back).setOnClickListener(v -> finish());
 
@@ -91,10 +89,9 @@ public class EscanearActivity extends AppCompatActivity {
             }
         });
 
-        MaterialButton btnContinuarPesaje = findViewById(R.id.btn_scanner_pesar);
         btnContinuarPesaje.setOnClickListener(v -> {
             if (lastDetectedCode.isEmpty() || lastMaterial.isEmpty()) {
-                Toast.makeText(this, "Escanee un código para detectar material", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Debe capturar una imagen primero", Toast.LENGTH_SHORT).show();
                 return;
             }
             Intent intent = new Intent(this, NuevoRegistroActivity.class);
@@ -121,19 +118,11 @@ public class EscanearActivity extends AppCompatActivity {
                 Preview preview = new Preview.Builder().build();
                 preview.setSurfaceProvider(viewFinder.getSurfaceProvider());
 
-                ImageAnalysis imageAnalysis = new ImageAnalysis.Builder()
-                        .setTargetResolution(new Size(1280, 720))
-                        .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
-                        .build();
-
-                imageAnalysis.setAnalyzer(cameraExecutor, this::processImageProxy);
-
                 CameraSelector cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA;
-
                 cameraProvider.unbindAll();
 
                 Camera camera = cameraProvider.bindToLifecycle(
-                        this, cameraSelector, preview, imageAnalysis);
+                        this, cameraSelector, preview);
                 
                 cameraControl = camera.getCameraControl();
 
@@ -143,34 +132,27 @@ public class EscanearActivity extends AppCompatActivity {
         }, ContextCompat.getMainExecutor(this));
     }
 
-    @androidx.camera.core.ExperimentalGetImage
-    private void processImageProxy(ImageProxy imageProxy) {
-        android.media.Image mediaImage = imageProxy.getImage();
-        if (mediaImage != null) {
-            InputImage image = InputImage.fromMediaImage(mediaImage, imageProxy.getImageInfo().getRotationDegrees());
-            barcodeScanner.process(image)
-                    .addOnSuccessListener(barcodes -> {
-                        for (Barcode barcode : barcodes) {
-                            String rawValue = barcode.getRawValue();
-                            if (rawValue != null && !rawValue.equals(lastDetectedCode)) {
-                                lastDetectedCode = rawValue;
-                                tvCodigoDetectado.setText(rawValue);
-                                
-                                // Al detectar el código, clasificar el material de la imagen capturada
-                                Bitmap bitmap = imageProxy.toBitmap();
-                                ClasificadorTFLite.Reconocimiento r = clasificador.clasificar(bitmap);
-                                lastMaterial = r.getEtiqueta();
-                                tvClasificacionAi.setText("IA: " + r.getEtiqueta() + " (" + (int)(r.getConfianza() * 100) + "%)");
-                            }
-                        }
-                    })
-                    .addOnFailureListener(e -> {
-                        // Ignorar fallos de lectura continuos
-                    })
-                    .addOnCompleteListener(task -> imageProxy.close());
-        } else {
-            imageProxy.close();
+    private void capturarYClasificar() {
+        Bitmap bitmap = viewFinder.getBitmap();
+        if (bitmap == null) {
+            Toast.makeText(this, "No se pudo obtener la imagen", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        // Generar un lote aleatorio ya que no usamos QR
+        Random rnd = new Random();
+        int numLote = 10000 + rnd.nextInt(90000);
+        lastDetectedCode = "LOTE-" + numLote;
+        tvCodigoDetectado.setText(lastDetectedCode);
+
+        // Clasificar la imagen capturada
+        ClasificadorTFLite.Reconocimiento r = clasificador.clasificar(bitmap);
+        lastMaterial = r.getEtiqueta();
+        int confianza = (int)(r.getConfianza() * 100);
+        
+        tvClasificacionAi.setText("IA: " + lastMaterial + " (" + confianza + "% Confianza)");
+        btnContinuarPesaje.setEnabled(true);
+        Toast.makeText(this, "Contenedor clasificado exitosamente", Toast.LENGTH_SHORT).show();
     }
 
     private boolean allPermissionsGranted() {
