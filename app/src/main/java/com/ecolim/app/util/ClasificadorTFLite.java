@@ -131,17 +131,39 @@ public class ClasificadorTFLite {
 
     private String mapearA_Ecolim(String label) {
         String lower = label.toLowerCase();
-        if (lower.contains("bottle") || lower.contains("plastic") || lower.contains("cup")) {
-            return "Plástico";
-        } else if (lower.contains("box") || lower.contains("carton") || lower.contains("paper")) {
-            return "Cartón";
-        } else if (lower.contains("glass") || lower.contains("wine") || lower.contains("beer")) {
+        
+        // Vidrio
+        if (lower.contains("glass") || lower.contains("wine") || lower.contains("beer") || 
+            lower.contains("goblet") || lower.contains("pitcher") || lower.contains("jug") || 
+            lower.contains("vase") || lower.contains("cup")) {
             return "Vidrio";
-        } else if (lower.contains("can") || lower.contains("metal") || lower.contains("tin")) {
+        } 
+        // Metal
+        else if (lower.contains("can") || lower.contains("metal") || lower.contains("tin") || 
+                 lower.contains("lid") || lower.contains("cap") || lower.contains("screw") || 
+                 lower.contains("nail") || lower.contains("coin") || lower.contains("buckle") ||
+                 lower.contains("pot") || lower.contains("pan")) {
             return "Metal";
-        } else if (lower.contains("fruit") || lower.contains("food") || lower.contains("plant") || lower.contains("apple") || lower.contains("banana") || lower.contains("orange")) {
+        } 
+        // Cartón / Papel
+        else if (lower.contains("box") || lower.contains("carton") || lower.contains("paper") || 
+                 lower.contains("envelope") || lower.contains("book") || lower.contains("magazine") ||
+                 lower.contains("tissue") || lower.contains("folder")) {
+            return "Cartón";
+        } 
+        // Orgánico
+        else if (lower.contains("fruit") || lower.contains("food") || lower.contains("plant") || 
+                 lower.contains("apple") || lower.contains("banana") || lower.contains("orange") ||
+                 lower.contains("vegetable") || lower.contains("meat") || lower.contains("leaf") ||
+                 lower.contains("flower") || lower.contains("tree")) {
             return "Orgánico";
         }
-        return "Plástico"; // Fallback por defecto
+        // Plástico
+        else if (lower.contains("bottle") || lower.contains("plastic") || lower.contains("bag") || 
+                 lower.contains("bucket") || lower.contains("tray")) {
+            return "Plástico";
+        }
+        
+        return "Otro (No clasificado)"; // Fallback por defecto en lugar de Plástico
     }
 }
