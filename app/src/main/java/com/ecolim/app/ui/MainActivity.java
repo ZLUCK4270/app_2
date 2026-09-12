@@ -80,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Báscula #B-04 calibrada correctamente a 0.00 kg", Toast.LENGTH_SHORT).show();
             } else if (id == R.id.drawer_sqlite_estado) {
                 Toast.makeText(this, "Base de datos ecolim.db en buen estado (SQLite 4)", Toast.LENGTH_SHORT).show();
+            } else if (id == R.id.drawer_cerrar_sesion) {
+                session.cerrarSesion();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                finish();
+                return true;
             }
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
